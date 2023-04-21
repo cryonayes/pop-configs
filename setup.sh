@@ -29,6 +29,10 @@ cd /tmp/CHC && make install;
 git clone https://github.com/aunetx/blur-my-shell /tmp/BMS;
 cd /tmp/BMS && make install;
 
+# Enable extensions
+gnome-extensions enable custom-hot-corners-extended@G-dH.github.com;
+gnome-extensions enable blur-my-shell@aunetx;
+
 # Themes
 git clone https://github.com/vinceliuice/Tela-icon-theme.git /tmp/Tela_RED && bash /tmp/Tela_RED/install.sh red;
 gsettings set org.gnome.desktop.interface icon-theme 'Tela-red-dark';
@@ -56,9 +60,13 @@ gsettings set org.gnome.desktop.wm.keybindings switch-applications "['<Super>Tab
 gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Alt>Tab']"
 gsettings set org.gnome.desktop.wm.keybindings move-to-center "['<Super>C']"
 
+# Bring back the maximize button and make the new windows centered
+gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
+gsettings set org.gnome.mutter center-new-windows true
+
 # OhMyZsh installation
 sudo apt install -y zsh;
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 # Delete temporary files
 rm -rf $DOWNLOAD_DIR /tmp/CHC /tmp/BMS /tmp/Tela_RED /tmp/Colloid_GTK /tmp/Whitesur_GTK /tmp/Bibata.tar.gz 
