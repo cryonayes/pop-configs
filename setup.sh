@@ -1,6 +1,5 @@
 #!/bin/sh
 
-
 CHROME_URL="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 
 # Disable unwanted system76 extensions
@@ -62,4 +61,8 @@ gsettings set org.gnome.desktop.wm.keybindings move-to-center "['<Super>C']"
 git config --global init.defaultBranch main
 # git config --global user.name ""
 # git config --global user.email ""
+
+# OhMyZsh installation
+sudo apt install -y zsh;
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
